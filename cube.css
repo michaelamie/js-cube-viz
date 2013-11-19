@@ -1,0 +1,154 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(#282828, #151515);
+    background: -webkit-radial-gradient(#282828, #151515);
+}
+
+.container {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+
+.cube {
+    opacity: 0;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+.face {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(-45deg, #222 0%, #333 100%);
+}
+
+header {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    width: 100%;
+}
+
+article {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.screenname, .text {
+    color: white;
+    font-family: Futura, Helvetica, sans-serif;
+    font-weight: 100;
+    letter-spacing: .5pt;
+    font-size: 11pt;
+    text-align: center;
+    word-wrap: break-word;
+    text-shadow: 0pt 0pt 4.5pt black;
+}
+
+.screenname {
+    margin: 3.75pt;
+    letter-spacing: 6pt;
+}
+
+.text {
+    margin: 7.5pt 22.5pt 7.5pt;
+}
+
+/* Position the planes of each div into a cube-like arangement */
+.cube .frontFace {
+    transform: translateX(-200px) translateZ(200px);
+    -webkit-transform: translateX(-200px) translateZ(200px);
+}
+
+.cube .rightFace {
+    transform: rotateY(90deg);
+	-webkit-transform: rotateY(90deg);
+}
+
+.cube .backFace {
+    transform: translateX(-200px) rotateY(180deg) translateZ(200px);
+	-webkit-transform: translateX(-200px) rotateY(180deg) translateZ(200px);
+}
+
+.cube .leftFace {
+    transform: translateX(-200px) rotateY(-90deg) translateZ(200px);
+    -webkit-transform: translateX(-200px) rotateY(-90deg) translateZ(200px);
+}
+
+/* These classes can be toggled on a cube element to change the current
+rotation animation. CSS animations don't currently generate events on
+a keyframe-by-keyframe basis, so it must be broken up into 4 seperate
+CSS animations that are toggled. */
+.cubeRotationFrontToRight {
+    animation: cubeRotationFrontToRight 3s cubic-bezier(.2,1,0,1);
+    -webkit-animation: cubeRotationFrontToRight 3s cubic-bezier(.2,1,0,1);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.cubeRotationRightToBack {
+    animation: cubeRotationRightToBack 3s cubic-bezier(.2,1,0,1);
+    -webkit-animation: cubeRotationRightToBack 3s cubic-bezier(.2,1,0,1);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.cubeRotationBackToLeft {
+    animation: cubeRotationBackToLeft 3s cubic-bezier(.2,1,0,1);
+    -webkit-animation: cubeRotationBackToLeft 3s cubic-bezier(.2,1,0,1);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.cubeRotationLeftToFront {
+    animation: cubeRotationLeftToFront 3s cubic-bezier(.2,1,0,1);
+    -webkit-animation: cubeRotationLeftToFront 3s cubic-bezier(.2,1,0,1);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/* CSS animations for rotation between each side of the cube */
+@keyframes cubeRotationFrontToRight {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(-90deg); }
+}
+@-webkit-keyframes cubeRotationFrontToRight {
+    from { -webkit-transform: rotateY(0deg); }
+    to { -webkit-transform: rotateY(-90deg); }
+}
+
+@keyframes cubeRotationRightToBack {
+    from { transform: rotateY(-90deg); }
+    to { transform: rotateY(-180deg); }
+}
+@-webkit-keyframes cubeRotationRightToBack {
+    from { -webkit-transform: rotateY(-90deg); }
+    to { -webkit-transform: rotateY(-180deg); }
+}
+
+@keyframes cubeRotationBackToLeft {
+    from { transform: rotateY(-180deg); }
+    to { transform: rotateY(-270deg); }
+}
+@-webkit-keyframes cubeRotationBackToLeft {
+    from { -webkit-transform: rotateY(-180deg); }
+    to { -webkit-transform: rotateY(-270deg); }
+}
+
+@keyframes cubeRotationLeftToFront {
+    from { transform: rotateY(-270deg); }
+    to { transform: rotateY(-360deg); }
+}
+@-webkit-keyframes cubeRotationLeftToFront {
+    from { -webkit-transform: rotateY(-270deg); }
+    to { -webkit-transform: rotateY(-360deg); }
+}

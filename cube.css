@@ -16,7 +16,8 @@ body {
 }
 
 .cube {
-    opacity: 0;
+    animation: fadeOpacityIn .5s linear;
+    -webkit-animation: fadeOpacityIn .5s linear;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
 }
@@ -29,21 +30,23 @@ body {
 }
 
 header {
-    opacity: 0;
+    animation: fadeOpacityIn 2.0s linear;
+    -webkit-animation: fadeOpacityIn 2.0s linear;
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
     width: 100%;
 }
 
 article {
-    opacity: 0;
+    animation: fadeOpacityIn 2.0s;
+    -webkit-animation: fadeOpacityIn 2.0s;
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
     width: 100%;
     bottom: 0;
 }
 
-.screenname, .text {
+.username, .text {
     color: white;
     font-family: Futura, Helvetica, sans-serif;
     font-weight: 100;
@@ -54,7 +57,7 @@ article {
     text-shadow: 0pt 0pt 4.5pt black;
 }
 
-.screenname {
+.username {
     margin: 3.75pt;
     letter-spacing: 6pt;
 }
@@ -64,7 +67,7 @@ article {
 }
 
 /* Position the planes of each div into a cube-like arangement */
-.cube .frontFace {
+.cube .frontFace {    
     transform: translateX(-200px) translateZ(200px);
     -webkit-transform: translateX(-200px) translateZ(200px);
 }
@@ -116,7 +119,7 @@ CSS animations that are toggled. */
     -webkit-animation-fill-mode: forwards;
 }
 
-/* CSS animations for rotation between each side of the cube */
+/* Animations for rotation between each side of the cube */
 @keyframes cubeRotationFrontToRight {
     from { transform: rotateY(0deg); }
     to { transform: rotateY(-90deg); }
@@ -152,3 +155,15 @@ CSS animations that are toggled. */
     from { -webkit-transform: rotateY(-270deg); }
     to { -webkit-transform: rotateY(-360deg); }
 }
+
+/* Animations for fade-in */
+@keyframes fadeOpacityIn {
+    from { opacity: 0; }
+    to { opacity: 100; }
+}
+
+@-webkit-keyframes fadeOpacityIn {
+    from { opacity: 0; }
+    to { opacity: 100; }
+}
+

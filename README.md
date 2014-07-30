@@ -2,9 +2,6 @@
 
 *Cube visualization demo that pulls images and data from Instagram*
 
----
-
-
 ###Todo:
 1. Finish cross-browser compatibility (originally, I did this as a hiring demo for a company that was only targeting Google Chrome for an appliance situation.)
 2. The viewport resize code might be broken when resizing above 1280x800; I have no way to test this at home, currently.
